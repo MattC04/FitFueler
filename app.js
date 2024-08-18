@@ -1,1 +1,0 @@
-/* manages global state */

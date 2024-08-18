@@ -1,11 +1,26 @@
 {
-  "name": "fitfueler",
+  "name": "fitfuelerv2",
   "version": "1.0.0",
-  "description": "Our app will be similar to other diet/fitness apps where you can track your calories, nutrients etc. To set our app apart from others, we will use an AI model to generate personalized meal choices according to what the user wants (cutting, bulking, keto, maintaining weight etc).",
-  "main": "app.js",
+  "main": "expo-router/entry",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "expo": "~51.0.28",
+    "expo-status-bar": "~1.12.1",
+    "react": "18.2.0",
+    "react-native": "0.74.5",
+    "expo-router": "~3.5.23",
+    "react-native-safe-area-context": "4.10.5",
+    "react-native-screens": "3.31.1",
+    "expo-linking": "~6.3.1",
+    "expo-constants": "~16.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
 }
