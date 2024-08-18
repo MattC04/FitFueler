@@ -1,0 +1,11 @@
+{
+  "name": "fitfueler",
+  "version": "1.0.0",
+  "description": "Our app will be similar to other diet/fitness apps where you can track your calories, nutrients etc. To set our app apart from others, we will use an AI model to generate personalized meal choices according to what the user wants (cutting, bulking, keto, maintaining weight etc).",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
