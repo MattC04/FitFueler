@@ -10,18 +10,25 @@ import PreferredCuisinesQuestion from './questions/PreferredCuisinesQuestion';
 import IntensityQuestion from './questions/IntensityQuestion';
 
 export default function Questionnaire() {
+  //keeps track of what state we are on
   const [currentStep, setCurrentStep] = useState(0);
+  //stores user's answers
   const [responses, setResponses] = useState({});
 
+  //called when clicked next button
   const handleNext = (key, value) => {
+    //update responses state with user's answer
     setResponses({ ...responses, [key]: value });
-    setCurrentStep(currentStep + 1); // Move to the next question
+    //increment to the next question
+    setCurrentStep(currentStep + 1); 
   };
 
+  //called wehn clicked back button
   const handleBack = () => {
     setCurrentStep(currentStep - 1); // Move to the previous question
   };
 
+  //summary screen joins arrays into comma-separated strings for easy view
   const formatResponse = (key) => {
     const response = responses[key];
     return Array.isArray(response) ? response.join(', ') : response;
