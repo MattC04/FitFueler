@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import styles from '../styling/QuestionStyle'; 
 
 export default function IntensityQuestion({ onNext, onBack }) {
   const [selectedDuration, setSelectedDuration] = useState('');
@@ -15,25 +16,34 @@ export default function IntensityQuestion({ onNext, onBack }) {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>How long do you want your personalized plan to be to achieve your goal?</Text>
+    <View style={styles.container}>
+      <Text style={styles.header}>How long do you want your personalized plan to be to achieve your goal?</Text>
       {durations.map((duration, index) => (
         <TouchableOpacity
           key={index}
           onPress={() => selectDuration(duration)}
-          style={{
-            backgroundColor: selectedDuration === duration ? 'blue' : 'gray',
-            margin: 5,
-            padding: 10,
-            borderRadius: 5
-          }}
+          style={[
+            styles.optionButton,
+            selectedDuration === duration && styles.optionButtonSelected,
+          ]}
         >
-          <Text style={{ color: 'white' }}>{duration}</Text>
+          <Text style={styles.optionText}>{duration}</Text>
         </TouchableOpacity>
       ))}
-      <View style={{ flexDirection: 'row', marginTop: 20 }}>
-        <Button title="Back" onPress={onBack} />
-        <Button title="Next" onPress={handleNext} disabled={!selectedDuration} />
+      <View style={styles.navigationContainer}>
+        <TouchableOpacity
+          onPress={onBack}
+          style={styles.navigationButton}
+        >
+          <Text style={styles.nextButtonText}>Back</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleNext}
+          style={styles.navigationButton}
+          disabled={!selectedDuration}
+        >
+          <Text style={styles.nextButtonText}>Next</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

@@ -8,6 +8,7 @@ import AllergiesQuestion from './questions/AllergiesQuestion';
 import DietaryRestrictionsQuestion from './questions/DietaryRestrictionsQuestion';
 import PreferredCuisinesQuestion from './questions/PreferredCuisinesQuestion';
 import IntensityQuestion from './questions/IntensityQuestion';
+import styles from "./styling/QuestionStyle";
 
 export default function Questionnaire() {
   //keeps track of what state we are on
@@ -28,14 +29,14 @@ export default function Questionnaire() {
     setCurrentStep(currentStep - 1); // Move to the previous question
   };
 
-  //summary screen joins arrays into comma-separated strings for easy view
+  //summary screen joins arrays into comma-separated strings for
   const formatResponse = (key) => {
     const response = responses[key];
     return Array.isArray(response) ? response.join(', ') : response;
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       {currentStep === 0 && <UserGoalQuestion onNext={handleNext} onBack={handleBack} />}
       {currentStep === 1 && <ExerciseQuestion onNext={handleNext} onBack={handleBack} />}
       {currentStep === 2 && <MealsQuestion onNext={handleNext} onBack={handleBack} />}

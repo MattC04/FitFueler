@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import styles from '../styling/QuestionStyle';
 
 export default function AllergiesQuestion({ onNext, onBack }) {
   const [selectedAllergies, setSelectedAllergies] = useState([]);
 
-  const allergies = ['Peanuts', 'Shellfish', 'Dairy', 'Gluten', 'Soy', 'N/A'];
+  const allergies = ['Peanuts', 'Shellfish', 'Dairy', 'Gluten', 'Eggs', 'Soy', 'N/A'];
 
   const toggleAllergy = (allergy) => {
     if (selectedAllergies.includes(allergy)) {
@@ -23,25 +24,34 @@ export default function AllergiesQuestion({ onNext, onBack }) {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Select any allergies you have (or select N/A):</Text>
+    <View style={styles.container}>
+      <Text style={styles.header}>Select any allergies you have:</Text>
       {allergies.map((allergy, index) => (
         <TouchableOpacity
           key={index}
           onPress={() => toggleAllergy(allergy)}
-          style={{
-            backgroundColor: selectedAllergies.includes(allergy) ? 'blue' : 'gray',
-            margin: 5,
-            padding: 10,
-            borderRadius: 5
-          }}
+          style={[
+            styles.optionButton,
+            selectedAllergies.includes(allergy) && styles.optionButtonSelected,
+          ]}
         >
-          <Text style={{ color: 'white' }}>{allergy}</Text>
+          <Text style={styles.optionText}>{allergy}</Text>
         </TouchableOpacity>
       ))}
-      <View style={{ flexDirection: 'row', marginTop: 20 }}>
-        <Button title="Back" onPress={onBack} />
-        <Button title="Next" onPress={handleNext} disabled={selectedAllergies.length === 0} />
+      <View style={styles.navigationContainer}>
+        <TouchableOpacity
+          onPress={onBack}
+          style={styles.navigationButton}
+        >
+          <Text style={styles.nextButtonText}>Back</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleNext}
+          style={styles.navigationButton}
+          disabled={selectedAllergies.length === 0}
+        >
+          <Text style={styles.nextButtonText}>Next</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

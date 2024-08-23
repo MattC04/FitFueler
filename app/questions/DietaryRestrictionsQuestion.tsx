@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import styles from '../styling/QuestionStyle'; // Ensure the correct path to your stylesheet
 
 export default function DietaryRestrictionsQuestion({ onNext, onBack }) {
   const [selectedRestrictions, setSelectedRestrictions] = useState([]);
@@ -23,25 +24,34 @@ export default function DietaryRestrictionsQuestion({ onNext, onBack }) {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Select any dietary restrictions you have (or select None):</Text>
+    <View style={styles.container}>
+      <Text style={styles.header}>Select any dietary restrictions you have (or select None):</Text>
       {restrictions.map((restriction, index) => (
         <TouchableOpacity
           key={index}
           onPress={() => toggleRestriction(restriction)}
-          style={{
-            backgroundColor: selectedRestrictions.includes(restriction) ? 'blue' : 'gray',
-            margin: 5,
-            padding: 10,
-            borderRadius: 5
-          }}
+          style={[
+            styles.optionButton,
+            selectedRestrictions.includes(restriction) && styles.optionButtonSelected,
+          ]}
         >
-          <Text style={{ color: 'white' }}>{restriction}</Text>
+          <Text style={styles.optionText}>{restriction}</Text>
         </TouchableOpacity>
       ))}
-      <View style={{ flexDirection: 'row', marginTop: 20 }}>
-        <Button title="Back" onPress={onBack} />
-        <Button title="Next" onPress={handleNext} disabled={selectedRestrictions.length === 0} />
+      <View style={styles.navigationContainer}>
+        <TouchableOpacity
+          onPress={onBack}
+          style={styles.navigationButton}
+        >
+          <Text style={styles.nextButtonText}>Back</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleNext}
+          style={styles.navigationButton}
+          disabled={selectedRestrictions.length === 0}
+        >
+          <Text style={styles.nextButtonText}>Next</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
