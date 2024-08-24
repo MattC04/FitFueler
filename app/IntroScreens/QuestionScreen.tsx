@@ -1,13 +1,13 @@
 //handles questionnaire logic
 import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
-import UserGoalQuestion from './questions/UserGoalQuestion';
-import ExerciseQuestion from './questions/ExerciseQuestion';
-import MealsQuestion from './questions/MealsQuestion';
-import AllergiesQuestion from './questions/AllergiesQuestion';
-import DietaryRestrictionsQuestion from './questions/DietaryRestrictionsQuestion';
-import PreferredCuisinesQuestion from './questions/PreferredCuisinesQuestion';
-import IntensityQuestion from './questions/IntensityQuestion';
+import UserGoalQuestion from '../questions/UserGoalQuestion';
+import ExerciseQuestion from '../questions/ExerciseQuestion';
+import MealsQuestion from '../questions/MealsQuestion';
+import AllergiesQuestion from '../questions/AllergiesQuestion';
+import DietaryRestrictionsQuestion from '../questions/DietaryRestrictionsQuestion';
+import PreferredCuisinesQuestion from '../questions/PreferredCuisinesQuestion';
+import IntensityQuestion from '../questions/IntensityQuestion';
 
 export default function Questionnaire() {
   const [currentStep, setCurrentStep] = useState(0);
