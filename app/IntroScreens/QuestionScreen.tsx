@@ -1,7 +1,6 @@
 //handles questionnaire logic
 import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
-<<<<<<< HEAD:app/IntroScreens/QuestionScreen.tsx
 import UserGoalQuestion from '../questions/UserGoalQuestion';
 import ExerciseQuestion from '../questions/ExerciseQuestion';
 import MealsQuestion from '../questions/MealsQuestion';
@@ -9,48 +8,27 @@ import AllergiesQuestion from '../questions/AllergiesQuestion';
 import DietaryRestrictionsQuestion from '../questions/DietaryRestrictionsQuestion';
 import PreferredCuisinesQuestion from '../questions/PreferredCuisinesQuestion';
 import IntensityQuestion from '../questions/IntensityQuestion';
-=======
-import UserGoalQuestion from './questions/UserGoalQuestion';
-import ExerciseQuestion from './questions/ExerciseQuestion';
-import MealsQuestion from './questions/MealsQuestion';
-import AllergiesQuestion from './questions/AllergiesQuestion';
-import DietaryRestrictionsQuestion from './questions/DietaryRestrictionsQuestion';
-import PreferredCuisinesQuestion from './questions/PreferredCuisinesQuestion';
-import IntensityQuestion from './questions/IntensityQuestion';
-import styles from "./styling/QuestionStyle";
-import ProgressBar from './questions/ProgressBar';
->>>>>>> 85dfa51763a802a1d323e6992f5980560e475cb6:app/questionnaire.tsx
 
-export default function Questionnaire() {
-  //keeps track of what state we are on
+export default function QuestionScreen() {
   const [currentStep, setCurrentStep] = useState(0);
-  //stores user's answers
   const [responses, setResponses] = useState({});
 
-  const totalSteps = 7;
-
-  //called when clicked next button
   const handleNext = (key, value) => {
-    //update responses state with user's answer
     setResponses({ ...responses, [key]: value });
-    //increment to the next question
-    setCurrentStep(currentStep + 1); 
+    setCurrentStep(currentStep + 1); // Move to the next question
   };
 
-  //called wehn clicked back button
   const handleBack = () => {
     setCurrentStep(currentStep - 1); // Move to the previous question
   };
 
-  //summary screen joins arrays into comma-separated strings for
   const formatResponse = (key) => {
     const response = responses[key];
     return Array.isArray(response) ? response.join(', ') : response;
   };
 
   return (
-    <View style={styles.container}>
-      <ProgressBar currentStep={currentStep + 1} totalSteps={totalSteps} />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       {currentStep === 0 && <UserGoalQuestion onNext={handleNext} onBack={handleBack} />}
       {currentStep === 1 && <ExerciseQuestion onNext={handleNext} onBack={handleBack} />}
       {currentStep === 2 && <MealsQuestion onNext={handleNext} onBack={handleBack} />}
@@ -60,14 +38,14 @@ export default function Questionnaire() {
       {currentStep === 6 && <IntensityQuestion onNext={handleNext} onBack={handleBack} />}
       {currentStep > 6 && (
         <View>
-          <Text style={styles.thankYouText}>Thank you for completing the questionnaire!</Text>
-          <Text style={styles.responseText}>User Goal: {formatResponse('userGoal')}</Text>
-          <Text style={styles.responseText}>Exercise Frequency: {formatResponse('exerciseFrequency')}</Text>
-          <Text style={styles.responseText}>Meals Per Day: {formatResponse('mealsPerDay')}</Text>
-          <Text style={styles.responseText}>Allergies: {formatResponse('allergies')}</Text>
-          <Text style={styles.responseText}>Dietary Restrictions: {formatResponse('dietaryRestrictions')}</Text>
-          <Text style={styles.responseText}>Preferred Cuisines: {formatResponse('preferredCuisines')}</Text>
-          <Text style={styles.responseText}>Plan Duration: {formatResponse('planDuration')}</Text>
+          <Text>Thank you for completing the questionnaire!</Text>
+          <Text>User Goal: {formatResponse('userGoal')}</Text>
+          <Text>Exercise Frequency: {formatResponse('exerciseFrequency')}</Text>
+          <Text>Meals Per Day: {formatResponse('mealsPerDay')}</Text>
+          <Text>Allergies: {formatResponse('allergies')}</Text>
+          <Text>Dietary Restrictions: {formatResponse('dietaryRestrictions')}</Text>
+          <Text>Preferred Cuisines: {formatResponse('preferredCuisines')}</Text>
+          <Text>Plan Duration: {formatResponse('planDuration')}</Text>
         </View>
       )}
     </View>
