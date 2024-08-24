@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import styles from '../styling/QuestionStyle';
 
 export default function MealsQuestion({ onNext, onBack }) {
   const [selectedMeals, setSelectedMeals] = useState('');
@@ -9,25 +10,34 @@ export default function MealsQuestion({ onNext, onBack }) {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>How many meals do you eat per day?</Text>
-      {['1', '2', '3', '3+'].map((meals, index) => (
+    <View style={styles.container}>
+      <Text style={styles.header}>How many meals do you eat per day?</Text>
+      {['1', '2', '3', '4+'].map((meals, index) => (
         <TouchableOpacity
           key={index}
           onPress={() => setSelectedMeals(meals)}
-          style={{
-            backgroundColor: selectedMeals === meals ? 'blue' : 'gray',
-            margin: 5,
-            padding: 10,
-            borderRadius: 5
-          }}
+          style={[
+            styles.optionButton,
+            selectedMeals === meals && styles.optionButtonSelected,
+          ]}
         >
-          <Text style={{ color: 'white' }}>{meals}</Text>
+          <Text style={styles.optionText}>{meals}</Text>
         </TouchableOpacity>
       ))}
-      <View style={{ flexDirection: 'row', marginTop: 20 }}>
-        <Button title="Back" onPress={onBack} />
-        <Button title="Next" onPress={handleNext} disabled={!selectedMeals} />
+      <View style={styles.navigationContainer}>
+        <TouchableOpacity
+          onPress={onBack}
+          style={styles.navigationButton}
+        >
+          <Text style={styles.nextButtonText}>Back</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleNext}
+          style={styles.navigationButton}
+          disabled={!selectedMeals}
+        >
+          <Text style={styles.nextButtonText}>Next</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

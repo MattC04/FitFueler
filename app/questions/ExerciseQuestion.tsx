@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import styles from '../styling/QuestionStyle';
 
 export default function ExerciseQuestion({ onNext, onBack }) {
   const [selectedFrequency, setSelectedFrequency] = useState('');
@@ -9,25 +10,34 @@ export default function ExerciseQuestion({ onNext, onBack }) {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>How often do you exercise?:</Text>
+    <View style={styles.container}>
+      <Text style={styles.header}>How often do you exercise?</Text>
       {['Not at all', 'Rarely', 'Moderate', 'Often', 'Intensive'].map((frequency, index) => (
         <TouchableOpacity
           key={index}
           onPress={() => setSelectedFrequency(frequency)}
-          style={{
-            backgroundColor: selectedFrequency === frequency ? 'blue' : 'gray',
-            margin: 5,
-            padding: 10,
-            borderRadius: 5
-          }}
+          style={[
+            styles.optionButton,
+            selectedFrequency === frequency && styles.optionButtonSelected,
+          ]}
         >
-          <Text style={{ color: 'white' }}>{frequency}</Text>
+          <Text style={styles.optionText}>{frequency}</Text>
         </TouchableOpacity>
       ))}
-      <View style={{ flexDirection: 'row', marginTop: 20 }}>
-        <Button title="Back" onPress={onBack} />
-        <Button title="Next" onPress={handleNext} disabled={!selectedFrequency} />
+      <View style={styles.navigationContainer}>
+        <TouchableOpacity
+          onPress={onBack}
+          style={styles.navigationButton}
+        >
+          <Text style={styles.nextButtonText}>Back</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleNext}
+          style={styles.navigationButton}
+          disabled={!selectedFrequency}
+        >
+          <Text style={styles.nextButtonText}>Next</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

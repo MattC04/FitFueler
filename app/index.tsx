@@ -4,13 +4,12 @@ import {View, Text} from 'react-native';
 import { useFonts, Raleway_400Regular} from '@expo-google-fonts/raleway';
 import Apploading from 'expo-app-loading';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from './IntroScreens/LoginScreen';
-import Questionnaire from './IntroScreens/QuestionScreen';
-import ForgotPasswordScreen from './IntroScreens/ForgotScreen'; 
-import CreateAccountScreen from './IntroScreens/CreateAccScreen'; 
+import LoginScreen from './loginscreen';
+import Questionnaire from './questionnaire';
+
 const Stack = createStackNavigator();
 
-export default function App() {
+export default function Index() {
   return (
     <Stack.Navigator initialRouteName="Login">
       <Stack.Screen

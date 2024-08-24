@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import styles from '../styling/QuestionStyle'; 
 
 export default function UserGoalQuestion({ onNext }) {
   const [selectedGoal, setSelectedGoal] = useState('');
@@ -9,23 +10,29 @@ export default function UserGoalQuestion({ onNext }) {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Select your goal:</Text>
+    <View style={styles.container}>
+      <Text style={styles.header}>Select your goal:</Text>
       {['Cutting', 'Bulking', 'Maintain'].map((goal, index) => (
         <TouchableOpacity
           key={index}
           onPress={() => setSelectedGoal(goal)}
-          style={{
-            backgroundColor: selectedGoal === goal ? 'blue' : 'gray',
-            margin: 5,
-            padding: 10,
-            borderRadius: 5
-          }}
+          style={[
+            styles.optionButton,
+            selectedGoal === goal && styles.optionButtonSelected,
+          ]}
         >
-          <Text style={{ color: 'white' }}>{goal}</Text>
+          <Text style={styles.optionText}>{goal}</Text>
         </TouchableOpacity>
       ))}
-      <Button title="Next" onPress={handleNext} disabled={!selectedGoal} />
+      <View style={styles.navigationContainer}>
+        <TouchableOpacity
+          onPress={handleNext}
+          style={styles.navigationButton}
+          disabled={!selectedGoal}
+        >
+          <Text style={styles.nextButtonText}>Next</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
