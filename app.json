@@ -26,18 +26,13 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-<<<<<<< HEAD
-=======
+
     "plugins": [
       "expo-router",
       "expo-font"
     ],
->>>>>>> 85dfa51763a802a1d323e6992f5980560e475cb6
     "experiments": {
       "typedRoutes": true
-    },
-    "plugins": [
-      "expo-font"
-    ]
+    }
   }
 }
