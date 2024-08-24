@@ -23,12 +23,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   progressTextContainer: {
-    marginBottom: 10,
+    marginBottom: 30,
   },
   progressText: {
     color: '#ffffff',
     fontSize: 16,
-    fontFamily: 'Raleway_700Bold',
+    fontFamily: 'raleway-bold',
   },
   progressBar: {
     width: '90%',

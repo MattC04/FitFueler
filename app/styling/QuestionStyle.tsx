@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#ffffff',
     marginBottom: 10,
-    fontFamily: 'raleway-bold', // Apply Raleway Bold font  
+    fontFamily: 'raleway-bold',  
   },
   optionButton: {
     backgroundColor: '#2c2c2e',
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   nextButtonText: {
     color: '#ffffff',
     fontSize: 16,
-    fontFamily: 'raleway-bold', // Apply Raleway Bold font  
+    fontFamily: 'raleway-bold',   
   },
 });
 
