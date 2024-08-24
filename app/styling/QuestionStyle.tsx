@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#ffffff',
     marginBottom: 10,
-    fontFamily: 'Raleway_700Bold',  // Apply Raleway Bold for headers
+    fontFamily: 'Raleway_700Bold',  
   },
   optionButton: {
     backgroundColor: '#2c2c2e',
@@ -32,26 +32,26 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     flex: 1,
-    fontFamily: 'Raleway_400Regular',  // Apply Raleway Regular for options
+    fontFamily: 'Raleway_400Regular',  
   },
   navigationContainer: {
     marginTop: 20,
     width: '100%',
-    flexDirection: 'row', // This ensures the buttons are side by side
-    justifyContent: 'space-between', // Space between the buttons
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
     alignItems: 'center', 
   },
   navigationButton: {
     backgroundColor: '#000000',
     padding: 15,
     borderRadius: 10,
-    width: '45%', // Ensures each button takes up 45% of the width
+    width: '45%', 
     alignItems: 'center',
   },
   nextButtonText: {
     color: '#ffffff',
     fontSize: 16,
-    fontFamily: 'Raleway_700Bold',  // Apply Raleway Bold for buttons
+    fontFamily: 'Raleway_700Bold',  
   },
 });
 
