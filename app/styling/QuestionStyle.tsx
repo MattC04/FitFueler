@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#ffffff',
     marginBottom: 10,
-    fontFamily: 'Raleway_700Bold',  
+    fontFamily: 'raleway-bold', // Apply Raleway Bold font  
   },
   optionButton: {
     backgroundColor: '#2c2c2e',
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     flex: 1,
-    fontFamily: 'Raleway_400Regular',  
+    fontFamily: 'raleway-regular',
   },
   navigationContainer: {
     marginTop: 20,
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   nextButtonText: {
     color: '#ffffff',
     fontSize: 16,
-    fontFamily: 'Raleway_700Bold',  
+    fontFamily: 'raleway-bold', // Apply Raleway Bold font  
   },
 });
 
