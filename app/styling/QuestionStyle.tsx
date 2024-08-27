@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
   },
   navigationButton: {
-    backgroundColor: '#000000',
+    backgroundColor: '#243B55',
     padding: 15,
     borderRadius: 10,
     width: '45%', 
