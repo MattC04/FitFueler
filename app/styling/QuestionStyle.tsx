@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#1c1c1e',
     padding: 20,
   },
   header: {
@@ -15,7 +14,7 @@ const styles = StyleSheet.create({
     fontFamily: 'raleway-bold',  
   },
   optionButton: {
-    backgroundColor: '#2c2c2e',
+    backgroundColor: '#243B55',
     margin: 5,
     padding: 15,
     borderRadius: 10,
