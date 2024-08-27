@@ -42,16 +42,18 @@ export default function LoginScreen({ navigation }) {
         onChangeText={setPassword}
         placeholderTextColor="grey"
       />
+      <View style={LoginStyles.forgotPasswordContainer}>
+          <TouchableOpacity onPress={handleForgotPassword}>
+            <Text style={LoginStyles.forgotPasswordText}>Forgot Password?</Text>
+          </TouchableOpacity>
+      </View>
       <TouchableOpacity style={[LoginStyles.button, LoginStyles.button]} onPress={handleLogin}>
         <Text style={LoginStyles.buttonText}>Login</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={handleForgotPassword}>
-        <Text style={LoginStyles.linkText}>Forgot Password?</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={handleCreateAccount}>
         <Text style={LoginStyles.linkText}>Create Account</Text>
       </TouchableOpacity>
-    </View>
+      </View>
     </LinearGradient>
   );
 }

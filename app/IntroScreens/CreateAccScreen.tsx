@@ -1,11 +1,33 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import LoginStyles from './LoginStyles';
+import { Auth } from 'aws-amplify';
 
 export default function CreateAccScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  // Handle user sign up
+  const handleSignUp = async () => {
+    if (password !== confirmPassword) {
+      Alert.alert('Password mismatch', 'Passwords do not match.');
+      return;
+    }
+
+    try {
+      const { user } = await Auth.signUp({
+        username: email,
+        password,
+      });
+      // Handle successful sign up (e.g., navigate to login screen)
+      Alert.alert('Success', 'Account created successfully.');
+      navigation.navigate('LoginScreen');
+    } catch (error) {
+      // Handle sign up error
+      Alert.alert('Sign Up Error', error.message);
+    }
+  };
 
   return (
     <View style={LoginStyles.container}>
@@ -37,7 +59,7 @@ export default function CreateAccScreen({ navigation }) {
         onChangeText={setConfirmPassword}
         placeholderTextColor="grey"
       />
-      <TouchableOpacity style={LoginStyles.button}>
+      <TouchableOpacity style={LoginStyles.button} onPress={handleSignUp}>
         <Text style={LoginStyles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
     </View>

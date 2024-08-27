@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-fitfueler-dev-0bed7-authRole",
+      "UnauthRoleArn": "arn:aws:iam::039612863331:role/amplify-fitfueler-dev-0bed7-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::039612863331:role/amplify-fitfueler-dev-0bed7-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-fitfueler-dev-0bed7-deployment",
+      "UnauthRoleName": "amplify-fitfueler-dev-0bed7-unauthRole",
+      "StackName": "amplify-fitfueler-dev-0bed7",
+      "StackId": "arn:aws:cloudformation:us-west-2:039612863331:stack/amplify-fitfueler-dev-0bed7/f1539740-6460-11ef-afe8-020ed1c3cbad",
+      "AmplifyAppId": "d3pc0n3k430ohl"
+    },
+    "categories": {
+      "api": {
+        "fitfueler": {}
+      },
+      "auth": {
+        "fitfueler09edaf03": {}
+      }
+    }
+  }
+}
