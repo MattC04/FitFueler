@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@aws-amplify/auth": "^6.3.16",
+    "@aws-amplify/datastore": "^5.0.47",
     "@aws-amplify/react-native": "^1.1.4",
     "@aws-amplify/ui-react-native": "^2.2.5",
     "@expo-google-fonts/raleway": "^0.2.3",

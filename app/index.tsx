@@ -10,6 +10,10 @@ import Questionnaire from './IntroScreens/QuestionScreen';
 import CreateAccScreen from './IntroScreens/CreateAccScreen';
 import ForgotPasswordScreen from './IntroScreens/ForgotScreen';
 
+import { Amplify } from 'aws-amplify';
+import awsconfig from '../src/amplifyconfiguration.json'; // Update the path to your configuration file if necessary
+
+Amplify.configure(awsconfig);
 
 const Stack = createStackNavigator();
 
