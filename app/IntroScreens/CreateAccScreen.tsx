@@ -19,12 +19,13 @@ export default function CreateAccScreen({ navigation }) {
       const { user } = await Auth.signUp({
         username: email,
         password,
+        attributes: {
+          email,
+        },
       });
-      // Handle successful sign up (e.g., navigate to login screen)
       Alert.alert('Success', 'Account created successfully.');
       navigation.navigate('LoginScreen');
     } catch (error) {
-      // Handle sign up error
       Alert.alert('Sign Up Error', error.message);
     }
   };

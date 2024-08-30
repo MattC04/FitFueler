@@ -69,8 +69,8 @@ const LoginStyles = StyleSheet.create({
   },
   header: {
     fontFamily: 'raleway-bold',
-    fontSize: 28, // Increase size for a larger, more noticeable header
-    marginBottom: 20, // Add margin for spacing
+    fontSize: 28, 
+    marginBottom: 20, 
     textAlign: 'center',
   },
   text: {

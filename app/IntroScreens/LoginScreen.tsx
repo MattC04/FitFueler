@@ -1,16 +1,22 @@
 //handles login screen 
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+import { View, TextInput, StyleSheet, Text, TouchableOpacity, Image, Alert } from 'react-native';
 import LoginStyles from './LoginStyles';
 import { LinearGradient } from 'expo-linear-gradient'; 
+import {Auth} from 'aws-amplify';
 
 export default function LoginScreen({ navigation }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   //go to questions after login
-  const handleLogin = () => {
-    navigation.navigate('Questionnaire');
+  const handleLogin = async () => {
+    try {
+      await Auth.signIn(username, password);
+      navigation.navigate('Questionnaire');
+    } catch (error) {
+      Alert.alert('Login Error', error.message);
+    }
   };
 
   const handleForgotPassword = () => {
