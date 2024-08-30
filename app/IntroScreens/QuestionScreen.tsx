@@ -1,6 +1,8 @@
 //handles questionnaire logic
 import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient'; 
+
 import UserGoalQuestion from '../questions/UserGoalQuestion';
 import ExerciseQuestion from '../questions/ExerciseQuestion';
 import MealsQuestion from '../questions/MealsQuestion';
@@ -38,9 +40,13 @@ export default function QuestionScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={['#0C1B33', '#1A274D', '#243B55']} 
+      style={styles.container}
+    >
+    {/* <View style={styles.container}> */}
       <ProgressBar currentStep={currentStep + 1} totalSteps={totalSteps} />
-      {currentStep === 0 && <UserGoalQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 0 && <UserGoalQuestion onNext={handleNext}/>}
       {currentStep === 1 && <ExerciseQuestion onNext={handleNext} onBack={handleBack} />}
       {currentStep === 2 && <MealsQuestion onNext={handleNext} onBack={handleBack} />}
       {currentStep === 3 && <AllergiesQuestion onNext={handleNext} onBack={handleBack} />}
@@ -59,6 +65,7 @@ export default function QuestionScreen() {
           <Text>Plan Duration: {formatResponse('planDuration')}</Text>
         </View>
       )}
-    </View>
+    {/* </View> */}
+    </LinearGradient>
   );
 }

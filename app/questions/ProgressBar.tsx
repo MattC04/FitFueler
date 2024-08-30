@@ -6,11 +6,9 @@ export default function ProgressBar({ currentStep, totalSteps }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.progressTextContainer}>
-        <Text style={styles.progressText}>Step {currentStep} of {totalSteps}</Text>
-      </View>
-      <View style={styles.progressBar}>
-        <View style={[styles.progress, { width: `${progressPercentage}%` }]} />
+      <Text style={styles.progressText}>Step {currentStep} of {totalSteps}</Text>
+      <View style={styles.progressBarContainer}>
+        <View style={[styles.progressBar, { width: `${progressPercentage}%` }]} />
       </View>
     </View>
   );
@@ -20,24 +18,23 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     alignItems: 'center',
-    marginBottom: 20,
-  },
-  progressTextContainer: {
-    marginBottom: 30,
+    marginBottom: -30,
+    marginTop: 50,
   },
   progressText: {
     color: '#ffffff',
     fontSize: 16,
     fontFamily: 'raleway-bold',
+    marginBottom: 10,
   },
-  progressBar: {
+  progressBarContainer: {
     width: '90%',
     height: 8,
     backgroundColor: '#2c2c2e',
     borderRadius: 4,
     overflow: 'hidden',
   },
-  progress: {
+  progressBar: {
     height: '100%',
     backgroundColor: 'green',
   },
