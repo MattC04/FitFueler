@@ -1,25 +1,21 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
-export default function DashboardScreen() {
+import Calendar from './Calendar';
+
+import styles from '../styling/DashboardStyle';
+
+export default function Dashboard() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Welcome to the Dashboard</Text>
-      {/* add content */}
-    </View>
+    <LinearGradient
+      colors={['#0C1B33', '#1A274D', '#243B55']}  // Your gradient colors
+      style={styles.gradientBackground}
+    >
+      <View style={styles.container}>
+        <Calendar />
+        {/* Future components like Food, Activity, etc., will go here */}
+      </View>
+    </LinearGradient>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#0C1B33',
-  },
-  text: {
-    color: '#ffffff',
-    fontSize: 24,
-    fontFamily: 'raleway-bold',
-  },
-});

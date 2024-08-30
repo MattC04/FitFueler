@@ -9,7 +9,7 @@ import LoginScreen from './IntroScreens/LoginScreen';
 import Questionnaire from './IntroScreens/QuestionScreen';
 import CreateAccScreen from './IntroScreens/CreateAccScreen';
 import ForgotPasswordScreen from './IntroScreens/ForgotScreen';
-import DashboardScreen from './dashboard/Dashboard';
+import Dashboard from './dashboard/Dashboard';
 
 
 const Stack = createStackNavigator();
@@ -39,7 +39,7 @@ export default function Index() {
       />
        <Stack.Screen
         name="Dashboard"
-        component={DashboardScreen}
+        component={Dashboard}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

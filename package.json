@@ -29,6 +29,7 @@
     "@types/react": "~18.2.79",
     "aws-amplify": "^6.5.3",
     "axios": "^1.7.4",
+    "date-fns": "^3.6.0",
     "expo": "~51.0.28",
     "expo-app-loading": "^2.1.1",
     "expo-constants": "~16.0.2",
