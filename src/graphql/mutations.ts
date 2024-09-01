@@ -8,54 +8,54 @@ type GeneratedMutation<InputType, OutputType> = string & {
   __generatedMutationOutput: OutputType;
 };
 
-export const createTodo = /* GraphQL */ `mutation CreateTodo(
-  $input: CreateTodoInput!
-  $condition: ModelTodoConditionInput
+export const createCreateUser = /* GraphQL */ `mutation CreateCreateUser(
+  $input: CreateCreateUserInput!
+  $condition: ModelCreateUserConditionInput
 ) {
-  createTodo(input: $input, condition: $condition) {
+  createCreateUser(input: $input, condition: $condition) {
     id
-    name
-    description
+    email
+    password
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.CreateTodoMutationVariables,
-  APITypes.CreateTodoMutation
+  APITypes.CreateCreateUserMutationVariables,
+  APITypes.CreateCreateUserMutation
 >;
-export const updateTodo = /* GraphQL */ `mutation UpdateTodo(
-  $input: UpdateTodoInput!
-  $condition: ModelTodoConditionInput
+export const updateCreateUser = /* GraphQL */ `mutation UpdateCreateUser(
+  $input: UpdateCreateUserInput!
+  $condition: ModelCreateUserConditionInput
 ) {
-  updateTodo(input: $input, condition: $condition) {
+  updateCreateUser(input: $input, condition: $condition) {
     id
-    name
-    description
+    email
+    password
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.UpdateTodoMutationVariables,
-  APITypes.UpdateTodoMutation
+  APITypes.UpdateCreateUserMutationVariables,
+  APITypes.UpdateCreateUserMutation
 >;
-export const deleteTodo = /* GraphQL */ `mutation DeleteTodo(
-  $input: DeleteTodoInput!
-  $condition: ModelTodoConditionInput
+export const deleteCreateUser = /* GraphQL */ `mutation DeleteCreateUser(
+  $input: DeleteCreateUserInput!
+  $condition: ModelCreateUserConditionInput
 ) {
-  deleteTodo(input: $input, condition: $condition) {
+  deleteCreateUser(input: $input, condition: $condition) {
     id
-    name
-    description
+    email
+    password
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.DeleteTodoMutationVariables,
-  APITypes.DeleteTodoMutation
+  APITypes.DeleteCreateUserMutationVariables,
+  APITypes.DeleteCreateUserMutation
 >;

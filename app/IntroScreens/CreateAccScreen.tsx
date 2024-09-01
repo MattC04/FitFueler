@@ -1,30 +1,42 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, Alert } from 'react-native';
 import LoginStyles from './LoginStyles';
-import { Auth } from 'aws-amplify';
+import { generateClient } from 'aws-amplify/api';  
+import { createCreateUser } from '../../src/graphql/mutations';
+
+const client = generateClient();  // creates the API client instance
 
 export default function CreateAccScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // Handle user sign up
   const handleSignUp = async () => {
     if (password !== confirmPassword) {
       Alert.alert('Password mismatch', 'Passwords do not match.');
       return;
     }
-
+    //creating a new user
     try {
-      const { user } = await Auth.signUp({
-        username: email,
-        password,
-        attributes: {
-          email,
-        },
+      const newCreateUser = await client.graphql({
+        query: createCreateUser,
+        variables: {
+          input: {
+            email, 
+            password, 
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(), 
+          }
+        }
       });
-      Alert.alert('Success', 'Account created successfully.');
-      navigation.navigate('LoginScreen');
+
+      if (newCreateUser.data.createCreateUser) {
+        Alert.alert('Success', 'Account created successfully.');
+        navigation.navigate('LoginScreen');
+      } else {
+        throw new Error('Failed to create user.');
+      }
+
     } catch (error) {
       Alert.alert('Sign Up Error', error.message);
     }

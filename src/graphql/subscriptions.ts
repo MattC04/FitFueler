@@ -8,45 +8,51 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType;
 };
 
-export const onCreateTodo = /* GraphQL */ `subscription OnCreateTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onCreateTodo(filter: $filter) {
+export const onCreateCreateUser = /* GraphQL */ `subscription OnCreateCreateUser(
+  $filter: ModelSubscriptionCreateUserFilterInput
+) {
+  onCreateCreateUser(filter: $filter) {
     id
-    name
-    description
+    email
+    password
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateTodoSubscriptionVariables,
-  APITypes.OnCreateTodoSubscription
+  APITypes.OnCreateCreateUserSubscriptionVariables,
+  APITypes.OnCreateCreateUserSubscription
 >;
-export const onUpdateTodo = /* GraphQL */ `subscription OnUpdateTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onUpdateTodo(filter: $filter) {
+export const onUpdateCreateUser = /* GraphQL */ `subscription OnUpdateCreateUser(
+  $filter: ModelSubscriptionCreateUserFilterInput
+) {
+  onUpdateCreateUser(filter: $filter) {
     id
-    name
-    description
+    email
+    password
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateTodoSubscriptionVariables,
-  APITypes.OnUpdateTodoSubscription
+  APITypes.OnUpdateCreateUserSubscriptionVariables,
+  APITypes.OnUpdateCreateUserSubscription
 >;
-export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onDeleteTodo(filter: $filter) {
+export const onDeleteCreateUser = /* GraphQL */ `subscription OnDeleteCreateUser(
+  $filter: ModelSubscriptionCreateUserFilterInput
+) {
+  onDeleteCreateUser(filter: $filter) {
     id
-    name
-    description
+    email
+    password
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteTodoSubscriptionVariables,
-  APITypes.OnDeleteTodoSubscription
+  APITypes.OnDeleteCreateUserSubscriptionVariables,
+  APITypes.OnDeleteCreateUserSubscription
 >;

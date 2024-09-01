@@ -19,6 +19,7 @@ const LoginStyles = StyleSheet.create({
     borderColor: '#ccc',
     marginBottom: 10,
     fontFamily: 'raleway-regular',
+    color: '#FFFFFF',
   },
   button: {
     backgroundColor: '#1A274D',
@@ -78,10 +79,10 @@ const LoginStyles = StyleSheet.create({
     fontSize: 18,
   },
   image: {
-    width: 150, // Increase logo size
+    width: 150, 
     height: 150,
     alignSelf: 'center',
-    marginBottom: 30, // Increase margin for spacing
+    marginBottom: 30,
   },
 });
 
