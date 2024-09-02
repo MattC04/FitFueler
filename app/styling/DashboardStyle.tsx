@@ -5,13 +5,13 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontSize: 24,
         fontFamily: 'raleway-bold',
-        textAlign: 'center', // Center the text horizontally
+        textAlign: 'center', // center the text horizontally
     },
     todayText: {
         color: '#00FF00',
         fontSize: 16,
         fontFamily: 'raleway-regular',
-        position: 'absolute', // Positioning today text to be at the top-right
+        position: 'absolute', // positioning today text to be at the top-right
         top: 0,
         right: 20,
       },
@@ -40,12 +40,13 @@ const styles = StyleSheet.create({
       padding: 20,
       alignItems: 'center',
       justifyContent: 'center',
-      height: 150,
+      height: 285,
       shadowColor: '#000',
       shadowOpacity: 0.1,
       shadowOffset: { width: 0, height: 2 },
       shadowRadius: 4,
       elevation: 5,
+      position: 'relative',
     },
     collapsedCard: {
       alignItems: 'center',
@@ -57,29 +58,34 @@ const styles = StyleSheet.create({
     },
     expandedText: {
       fontSize: 18,
-      color: '#ffffff',
+      fontFamily: 'raleway-bold',
+      color: '#243B55',
     },
     cardTitle: {
-      fontSize: 18,
-      fontWeight: 'bold',
+      fontSize: 35,
       marginBottom: 10,
       color: '#333',
+      fontFamily: 'raleway-bold',
     },
     cardValue: {
       fontSize: 36,
       fontWeight: 'bold',
       color: '#333',
+      fontFamily: 'raleway-regular',
     },
     cardDescription: {
-      fontSize: 16,
+      fontSize: 20,
       color: '#333',
+      fontFamily: 'raleway-regular',
     },
     additionalContent: {
-      marginTop: 10,
+      marginTop: 15,
+      fontFamily: 'raleway-regular',
     },
     additionalText: {
-      fontSize: 14,
+      fontSize: 15,
       color: '#333',
+      fontFamily: 'raleway-regular',
     },
   });
 
