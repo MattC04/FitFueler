@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { format, addDays, startOfWeek } from 'date-fns';
 // format is used to format dates into readable string 
 // addDays is for adding certain number of days to a date --> addDays(date, #)
@@ -19,6 +19,13 @@ export default function Calendar() {
 
   return (
     <View style={styles.calendarContainer}>
+      {/* Dashboard title and "Today" button */}
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>Dashboard</Text>
+        <TouchableOpacity style={styles.todayButton}>
+          <Text style={styles.todayText}>Today</Text>
+        </TouchableOpacity>
+      </View>
       <View style={styles.weekContainer}>
          {/* 
          weekDates is an array that holds dates for the current week.

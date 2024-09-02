@@ -2,19 +2,35 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   calendarContainer: {
-    paddingTop: 50,
+    paddingTop: 60,
     alignItems: 'center',
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '90%',
+    marginBottom: 10,
   },
   headerText: {
     color: 'white',
-    fontSize: 24,
+    fontSize: 40,
     fontFamily: 'raleway-bold',
-    marginBottom: 10,
+  },
+  todayButton: {
+    backgroundColor: 'transparent',
+    padding: 5,
+  },
+  todayText: {
+    color: '#3ddc84',
+    fontSize: 16,
+    fontFamily: 'raleway-bold',
   },
   weekContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '90%',
+    marginTop: 10,
   },
   dayContainer: {
     alignItems: 'center',
