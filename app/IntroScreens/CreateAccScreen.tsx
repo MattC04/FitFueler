@@ -58,7 +58,7 @@ export default function CreateAccScreen({ navigation }) {
         onChangeText={setConfirmPassword}
         placeholderTextColor="grey"
       />
-      <TouchableOpacity style={LoginStyles.button} onPress={handleSignUp}>
+      <TouchableOpacity style={LoginStyles.button} onPress={handleSignup}>
         <Text style={LoginStyles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
     </View>
