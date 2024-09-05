@@ -4,17 +4,18 @@ import {View, Text} from 'react-native';
 import { useFonts} from '@expo-google-fonts/raleway';
 import Apploading from 'expo-app-loading';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import LoginScreen from './IntroScreens/LoginScreen';
 import Questionnaire from './IntroScreens/QuestionScreen';
 import CreateAccScreen from './IntroScreens/CreateAccScreen';
 import ForgotPasswordScreen from './IntroScreens/ForgotScreen';
-
 import { Amplify } from 'aws-amplify';
 import awsconfig from '../src/amplifyconfiguration.json'; // Update the path to your configuration file if necessary
+import {
+  withAuthenticator,
+  useAuthenticator
+} from '@aws-amplify/ui-react-native';
 
 Amplify.configure(awsconfig);
-
 const Stack = createStackNavigator();
 
 export default function Index() {

@@ -4,21 +4,16 @@ import { View, TextInput, StyleSheet, Text, TouchableOpacity, Image, Alert } fro
 import LoginStyles from './LoginStyles';
 import { LinearGradient } from 'expo-linear-gradient'; 
 import {Auth} from 'aws-amplify';
+import { signIn, type SignInInput } from 'aws-amplify/auth';
 
 export default function LoginScreen({ navigation }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  //go to questions after login
-  const handleLogin = async () => {
-    try {
-      await Auth.signIn(username, password);
-      navigation.navigate('Questionnaire');
-    } catch (error) {
-      Alert.alert('Login Error', error.message);
-    }
-  };
+const handleLogin = async() => {
+  navigation.navigate('Questionnaire')
 
+}
   const handleForgotPassword = () => {
     navigation.navigate('ForgotPassword');
   };
@@ -38,7 +33,7 @@ export default function LoginScreen({ navigation }) {
         placeholder="Username"
         value={username}
         onChangeText={setUsername}
-        placeholderTextColor="grey"
+        placeholderTextColor="white"
       />
       <TextInput
         style={LoginStyles.input}
@@ -46,14 +41,16 @@ export default function LoginScreen({ navigation }) {
         secureTextEntry
         value={password}
         onChangeText={setPassword}
-        placeholderTextColor="grey"
+        placeholderTextColor="white"
       />
       <View style={LoginStyles.forgotPasswordContainer}>
           <TouchableOpacity onPress={handleForgotPassword}>
             <Text style={LoginStyles.forgotPasswordText}>Forgot Password?</Text>
           </TouchableOpacity>
         </View>
-      <TouchableOpacity style={[LoginStyles.button, LoginStyles.button]} onPress={handleLogin}>
+      <TouchableOpacity 
+        style={LoginStyles.button} 
+        onPress={() => handleLogin({ username, password })}>
         <Text style={LoginStyles.buttonText}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={handleCreateAccount}>
