@@ -52,7 +52,7 @@ export default function QuestionScreen({navigation}) {
       <ProgressBar currentStep={currentStep + 1} totalSteps={totalSteps} />
       {currentStep === 0 && <EmailPasswordQuestion navigation={navigation} onNext={handleNext}/>}
       {currentStep === 1 && <NameQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep === 2 && <UserGoalQuestion onNext={handleNext}/>}
+      {currentStep === 2 && <UserGoalQuestion onNext={handleNext} onBack={handleBack} />}
       {currentStep === 3 && <ExerciseQuestion onNext={handleNext} onBack={handleBack} />}
       {currentStep === 4 && <MealsQuestion onNext={handleNext} onBack={handleBack} />}
       {currentStep === 5 && <AllergiesQuestion onNext={handleNext} onBack={handleBack} />}
