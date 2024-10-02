@@ -52,6 +52,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'raleway-bold',   
   },
+  input: {
+    padding: 20,
+    borderRadius: 10,
+    marginBottom: 10,
+    width: '90%',
+    color: 'white',
+    fontFamily: 'raleway-regular',
+  }
 });
 
 export default styles;

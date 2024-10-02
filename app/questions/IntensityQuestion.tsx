@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styling/QuestionStyle'; 
+import auth from '@react-native-firebase/auth';
 
-export default function IntensityQuestion({ onNext, onBack }) {
+export default function IntensityQuestion({ onNext, onBack, userData, navigation }) {
   const [selectedDuration, setSelectedDuration] = useState('');
 
   const durations = ['4 weeks', '8 weeks', '12 weeks', '16 weeks'];
@@ -11,9 +12,19 @@ export default function IntensityQuestion({ onNext, onBack }) {
     setSelectedDuration(duration);
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
+    try{
     onNext('planDuration', selectedDuration);
-  };
+    const {email, password} = userData
+    const userCredential = await auth().createUserWithEmailAndPassword(email, password);
+    console.log('User account created & signed in!', userCredential.user);
+
+    // After creating the user, go to dashboard
+    navigation.navigate('HomeScreen');
+  } catch (error) {
+    console.log('Error creating user:', error);
+  }
+};
 
   return (
     <View style={styles.container}>

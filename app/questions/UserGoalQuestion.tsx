@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styling/QuestionStyle'; 
 
-export default function UserGoalQuestion({ onNext }) {
+export default function UserGoalQuestion({ onNext, onBack }) {
   const [selectedGoal, setSelectedGoal] = useState('');
 
   const handleNext = () => {
@@ -25,6 +25,9 @@ export default function UserGoalQuestion({ onNext }) {
         </TouchableOpacity>
       ))}
       <View style={styles.navigationContainer}>
+        <TouchableOpacity onPress={onBack} style={styles.navigationButton}>
+          <Text style={styles.nextButtonText}>Back</Text>
+        </TouchableOpacity>
         <TouchableOpacity
           onPress={handleNext}
           style={styles.navigationButton}

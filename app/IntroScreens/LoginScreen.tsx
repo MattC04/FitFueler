@@ -1,26 +1,25 @@
 //handles login screen 
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Text, TouchableOpacity, Image, Alert } from 'react-native';
-import LoginStyles from './LoginStyles';
+import { View, TextInput, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+import LoginStyles from '../styling/LoginStyles';
 import { LinearGradient } from 'expo-linear-gradient'; 
-import {Auth} from 'aws-amplify';
-import { signIn, type SignInInput } from 'aws-amplify/auth';
 
 export default function LoginScreen({ navigation }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-const handleLogin = async() => {
-  navigation.navigate('Questionnaire')
+  //go to dashboard after login
+  const handleCreateAccount = () => {
+    navigation.navigate('QuestionScreen');
+  };
 
-}
+  const handleLogin = () => {
+    navigation.navigate();
+  }
   const handleForgotPassword = () => {
     navigation.navigate('ForgotPassword');
   };
 
-  const handleCreateAccount = () => {
-    navigation.navigate('CreateAccount');
-  };
 
   return (
     <LinearGradient
@@ -33,7 +32,7 @@ const handleLogin = async() => {
         placeholder="Username"
         value={username}
         onChangeText={setUsername}
-        placeholderTextColor="white"
+        placeholderTextColor="grey"
       />
       <TextInput
         style={LoginStyles.input}
@@ -41,22 +40,15 @@ const handleLogin = async() => {
         secureTextEntry
         value={password}
         onChangeText={setPassword}
-        placeholderTextColor="white"
+        placeholderTextColor="grey"
       />
-      <View style={LoginStyles.forgotPasswordContainer}>
-          <TouchableOpacity onPress={handleForgotPassword}>
-            <Text style={LoginStyles.forgotPasswordText}>Forgot Password?</Text>
-          </TouchableOpacity>
-        </View>
-      <TouchableOpacity 
-        style={LoginStyles.button} 
-        onPress={() => handleLogin({ username, password })}>
+      <TouchableOpacity style={[LoginStyles.button, LoginStyles.button]} onPress={handleLogin}>
         <Text style={LoginStyles.buttonText}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={handleCreateAccount}>
         <Text style={LoginStyles.linkText}>Create Account</Text>
       </TouchableOpacity>
-    </View>
+      </View>
     </LinearGradient>
   );
 }

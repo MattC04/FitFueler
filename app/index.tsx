@@ -4,18 +4,11 @@ import {View, Text} from 'react-native';
 import { useFonts} from '@expo-google-fonts/raleway';
 import Apploading from 'expo-app-loading';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from './IntroScreens/LoginScreen';
-import Questionnaire from './IntroScreens/QuestionScreen';
-import CreateAccScreen from './IntroScreens/CreateAccScreen';
-import ForgotPasswordScreen from './IntroScreens/ForgotScreen';
-import { Amplify } from 'aws-amplify';
-import awsconfig from '../src/amplifyconfiguration.json'; // Update the path to your configuration file if necessary
-import {
-  withAuthenticator,
-  useAuthenticator
-} from '@aws-amplify/ui-react-native';
 
-Amplify.configure(awsconfig);
+import LoginScreen from './IntroScreens/LoginScreen';
+import QuestionScreen from './IntroScreens/QuestionScreen';
+
+
 const Stack = createStackNavigator();
 
 export default function Index() {
@@ -27,18 +20,8 @@ export default function Index() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Questionnaire"
-        component={Questionnaire}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="ForgotPassword"
-        component={ForgotPasswordScreen} 
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="CreateAccount"
-        component={CreateAccScreen} // Add the new screen
+        name="QuestionScreen"
+        component={QuestionScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

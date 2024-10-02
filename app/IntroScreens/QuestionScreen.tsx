@@ -1,6 +1,6 @@
-//handles questionnaire logic
+//all the questions
 import React, { useState } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'; 
 
 import UserGoalQuestion from '../questions/UserGoalQuestion';
@@ -10,30 +10,34 @@ import AllergiesQuestion from '../questions/AllergiesQuestion';
 import DietaryRestrictionsQuestion from '../questions/DietaryRestrictionsQuestion';
 import PreferredCuisinesQuestion from '../questions/PreferredCuisinesQuestion';
 import IntensityQuestion from '../questions/IntensityQuestion';
+import EmailPasswordQuestion from '../questions/EmailPassQuestion';
+import NameQuestion from '../questions/NameQuestion';
 
-import styles from "../styling/QuestionStyle"
+import styles from "../styling/QuestionStyle";
 import ProgressBar from '../questions/ProgressBar';
 
-export default function QuestionScreen() {
+export default function QuestionScreen({navigation}) {
   const [currentStep, setCurrentStep] = useState(0);
   const [responses, setResponses] = useState({});
 
-  const totalSteps = 7;
+  const totalSteps = 9;
 
-  //called when clicked next button
+  // Function to handle moving to the next step
   const handleNext = (key, value) => {
-    //update responses state with user's answer
     setResponses({ ...responses, [key]: value });
-     //increment to the next question
-    setCurrentStep(currentStep + 1); // move to the next question
+    if (currentStep < totalSteps - 1) {
+      setCurrentStep(currentStep + 1);
+    }
   };
 
-  //called when clicked back button
+  // Function to handle moving to the previous step
   const handleBack = () => {
-    setCurrentStep(currentStep - 1); // move to the previous question
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
   };
 
-  //summary screen joins arrays into comma-separated strings for
+  // Format response (e.g., to convert arrays into comma-separated strings)
   const formatResponse = (key) => {
     const response = responses[key];
     return Array.isArray(response) ? response.join(', ') : response;
@@ -46,14 +50,16 @@ export default function QuestionScreen() {
     >
     {/* <View style={styles.container}> */}
       <ProgressBar currentStep={currentStep + 1} totalSteps={totalSteps} />
-      {currentStep === 0 && <UserGoalQuestion onNext={handleNext}/>}
-      {currentStep === 1 && <ExerciseQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep === 2 && <MealsQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep === 3 && <AllergiesQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep === 4 && <DietaryRestrictionsQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep === 5 && <PreferredCuisinesQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep === 6 && <IntensityQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep > 6 && (
+      {currentStep === 0 && <EmailPasswordQuestion navigation={navigation} onNext={handleNext}/>}
+      {currentStep === 1 && <NameQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 2 && <UserGoalQuestion onNext={handleNext}/>}
+      {currentStep === 3 && <ExerciseQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 4 && <MealsQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 5 && <AllergiesQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 6 && <DietaryRestrictionsQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 7 && <PreferredCuisinesQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 8 && <IntensityQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep > 8 && (
         <View>
           <Text>Thank you for completing the questionnaire!</Text>
           <Text>User Goal: {formatResponse('userGoal')}</Text>

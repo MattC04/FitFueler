@@ -15,11 +15,9 @@ const LoginStyles = StyleSheet.create({
     width: width * 0.6, 
     paddingVertical: 10, 
     paddingHorizontal: 15, 
-    borderBottomWidth: 0.7,
     borderColor: '#ccc',
-    marginBottom: 10,
     fontFamily: 'raleway-regular',
-    color: '#FFFFFF',
+    color: 'white',
   },
   button: {
     backgroundColor: '#1A274D',
@@ -70,8 +68,8 @@ const LoginStyles = StyleSheet.create({
   },
   header: {
     fontFamily: 'raleway-bold',
-    fontSize: 28, 
-    marginBottom: 20, 
+    fontSize: 28, // Increase size for a larger, more noticeable header
+    marginBottom: 20, // Add margin for spacing
     textAlign: 'center',
   },
   text: {
@@ -79,10 +77,10 @@ const LoginStyles = StyleSheet.create({
     fontSize: 18,
   },
   image: {
-    width: 150, 
+    width: 150, // Increase logo size
     height: 150,
     alignSelf: 'center',
-    marginBottom: 30,
+    marginBottom: 30, // Increase margin for spacing
   },
 });
 
