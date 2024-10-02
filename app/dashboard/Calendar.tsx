@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { format, addDays, startOfWeek } from 'date-fns';
 // format is used to format dates into readable string 
 // addDays is for adding certain number of days to a date --> addDays(date, #)
-// startOfWeek returns start date of the week for a given gate 
+// startOfWeek returns start date of the week for a given date 
 
 import styles from '../styling/CalendarStyle'
 
