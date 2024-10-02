@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styling/QuestionStyle'; 
-import auth from '@react-native-firebase/auth';
 
 export default function IntensityQuestion({ onNext, onBack, userData, navigation }) {
   const [selectedDuration, setSelectedDuration] = useState('');
