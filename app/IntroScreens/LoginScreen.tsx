@@ -14,7 +14,7 @@ export default function LoginScreen({ navigation }) {
   };
 
   const handleLogin = () => {
-    navigation.navigate();
+    navigation.navigate('QuestionScreen');
   }
   const handleForgotPassword = () => {
     navigation.navigate('ForgotPassword');
