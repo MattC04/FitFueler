@@ -1,0 +1,1 @@
+{"version":3,"file":"loadAppState.mjs","sources":["../../../src/moduleLoaders/loadAppState.ts"],"sourcesContent":["// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.\n// SPDX-License-Identifier: Apache-2.0\nimport { AppState } from 'react-native';\nexport const loadAppState = () => AppState;\n"],"names":[],"mappings":";;AAAA;AACA;AAEY,MAAC,YAAY,GAAG,MAAM;;;;"}

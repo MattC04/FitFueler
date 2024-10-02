@@ -1,0 +1,1 @@
+{"version":3,"file":"loadBuffer.mjs","sources":["../../../src/moduleLoaders/loadBuffer.ts"],"sourcesContent":["// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.\n// SPDX-License-Identifier: Apache-2.0\nimport { Buffer } from 'buffer';\nexport const loadBuffer = () => Buffer;\n"],"names":[],"mappings":";;AAAA;AACA;AAEY,MAAC,UAAU,GAAG,MAAM;;;;"}
