@@ -19,6 +19,7 @@ const LoginStyles = StyleSheet.create({
     borderColor: '#ccc',
     marginBottom: 10,
     fontFamily: 'raleway-regular',
+    color: 'white'
   },
   button: {
     backgroundColor: '#1A274D',

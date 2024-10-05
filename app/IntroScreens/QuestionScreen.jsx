@@ -10,16 +10,18 @@ import AllergiesQuestion from '../Questions/AllergiesQuestion';
 import DietaryRestrictionsQuestion from '../Questions/DietaryRestrictionsQuestion';
 import PreferredCuisinesQuestion from '../Questions/PreferredCuisinesQuestion';
 import IntensityQuestion from '../Questions/IntensityQuestion';
-
+import EmailPasswordQuestion from '../Questions/EmailandPassword';
+import NameQuestion from '../Questions/NameQuestion';
 import styles from "../styling/QuestionStyle";
 import ProgressBar from '../Questions/ProgressBar';
+
 
 export default function QuestionScreen() {
   const [currentStep, setCurrentStep] = useState(0);
   const [responses, setResponses] = useState({});
   const navigation = useNavigation(); // Use the navigation hook to access the navigator
 
-  const totalSteps = 7;
+  const totalSteps = 9;
 
   //called when clicked next button
   const handleNext = (key, value) => {
@@ -46,13 +48,15 @@ export default function QuestionScreen() {
       style={styles.container}
     >
       <ProgressBar currentStep={currentStep + 1} totalSteps={totalSteps} />
-      {currentStep === 0 && <UserGoalQuestion onNext={handleNext}/>}
-      {currentStep === 1 && <ExerciseQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep === 2 && <MealsQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep === 3 && <AllergiesQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep === 4 && <DietaryRestrictionsQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep === 5 && <PreferredCuisinesQuestion onNext={handleNext} onBack={handleBack} />}
-      {currentStep === 6 && <IntensityQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 0 && <EmailPasswordQuestion onNext={handleNext} onBack = {handleBack}/>}
+      {currentStep === 1 && <NameQuestion onNext={handleNext} onBack = {handleBack}/>}
+      {currentStep === 2 && <UserGoalQuestion onNext={handleNext} onBack = {handleBack}/>}
+      {currentStep === 3 && <ExerciseQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 4 && <MealsQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 5 && <AllergiesQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 6 && <DietaryRestrictionsQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 7 && <PreferredCuisinesQuestion onNext={handleNext} onBack={handleBack} />}
+      {currentStep === 8 && <IntensityQuestion onNext={handleNext} onBack={handleBack} />}
     </LinearGradient>
   );
 }

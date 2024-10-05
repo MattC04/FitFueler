@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import LoginStyles from './LoginStyles'; // Reusing the same styles for simplicity
+import LoginStyles from '../styling/LoginStyles'; // Reusing the same styles for simplicity
 
 export default function ForgotPasswordScreen({ navigation }) {
   return (

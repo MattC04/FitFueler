@@ -1,7 +1,7 @@
 //handles login screen 
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
-import LoginStyles from './LoginStyles';
+import LoginStyles from '../styling/LoginStyles';
 import { LinearGradient } from 'expo-linear-gradient'; 
 
 export default function LoginScreen({ navigation }) {
@@ -10,7 +10,7 @@ export default function LoginScreen({ navigation }) {
 
   //go to questions after login
   const handleLogin = () => {
-    navigation.navigate('Questionnaire');
+    navigation.navigate('Dashboard');
   };
 
   const handleForgotPassword = () => {
@@ -18,7 +18,7 @@ export default function LoginScreen({ navigation }) {
   };
 
   const handleCreateAccount = () => {
-    navigation.navigate('CreateAccount');
+    navigation.navigate('QuestionScreen');
   };
 
   return (

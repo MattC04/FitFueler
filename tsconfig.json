@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "app/Dashboard/ExpandableCard.jsx", "app/index.jsx", "app/_layout.jsx", "app/Questions/UserGoalQuestion.jsx", "app/IntroScreens/LoginStyles.js", "app/IntroScreens/QuestionScreen.jsx", "app/IntroScreens/LoginScreen.jsx", "app/IntroScreens/ForgotScreen.jsx", "app/index.jsx", "app/_layout.jsx", "app/Questions/UserGoalQuestion.jsx", "app/Questions/ProgressBar.jsx", "app/Questions/PreferredCuisinesQuestion.jsx", "app/Questions/MealsQuestion.jsx", "app/Questions/IntensityQuestion.jsx", "app/Questions/ExerciseQuestion.jsx", "app/Questions/DietaryRestrictionsQuestion.jsx", "app/Questions/AllergiesQuestion.jsx", "app/Dashboard/Calendar.jsx", "app/Dashboard/Dashboard.jsx", "app/Dashboard/ExpandableCard.jsx", "app/IntroScreens/CreateAccScreen.jsx"  ]
 }

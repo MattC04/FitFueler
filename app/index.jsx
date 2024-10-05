@@ -6,8 +6,7 @@ import Apploading from 'expo-app-loading';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import LoginScreen from './IntroScreens/LoginScreen';
-import Questionnaire from './IntroScreens/QuestionScreen';
-import CreateAccScreen from './IntroScreens/CreateAccScreen';
+import QuestionScreen from './IntroScreens/QuestionScreen';
 import ForgotPasswordScreen from './IntroScreens/ForgotScreen';
 import Dashboard from './Dashboard/Dashboard';
 
@@ -23,18 +22,13 @@ export default function Index() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Questionnaire"
-        component={Questionnaire}
+        name="QuestionScreen"
+        component={QuestionScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen
         name="ForgotPassword"
         component={ForgotPasswordScreen} 
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="CreateAccount"
-        component={CreateAccScreen} 
         options={{ headerShown: false }}
       />
        <Stack.Screen

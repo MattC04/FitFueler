@@ -52,6 +52,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'raleway-bold',   
   },
+  input: {
+    width: '90%',
+    backgroundColor: '#243B55',
+    borderRadius: 10,
+    padding: 15,
+    fontSize: 16,
+    color: 'white',
+    marginVertical: 10,
+    fontFamily: 'raleway-regular',
+  },
+  dateText: {
+    color: 'white',
+  }
 });
 
 export default styles;
