@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'; 
-import { useNavigation } from '@react-navigation/native'; // Import the useNavigation hook
+import { useNavigation } from '@react-navigation/native'; 
+import { createUserWithEmailAndPassword } from 'firebase/auth'; 
+import { FIREBASE_AUTH } from '../../firebaseconfig';
 
 import UserGoalQuestion from '../Questions/UserGoalQuestion';
 import ExerciseQuestion from '../Questions/ExerciseQuestion';
@@ -19,25 +21,43 @@ import ProgressBar from '../Questions/ProgressBar';
 export default function QuestionScreen() {
   const [currentStep, setCurrentStep] = useState(0);
   const [responses, setResponses] = useState({});
-  const navigation = useNavigation(); // Use the navigation hook to access the navigator
+  const navigation = useNavigation(); 
+  const auth = FIREBASE_AUTH;
 
   const totalSteps = 9;
 
-  //called when clicked next button
-  const handleNext = (key, value) => {
-    //update responses state with user's answer
-    setResponses({ ...responses, [key]: value });
+  // called when clicked next button
+  const handleNext = async (key, value) => {
+    // update responses state with user's answer
+    // setResponses({ ...responses, [key]: value });
+    setResponses(prevResponses => ({ ...prevResponses, [key]: value }));
 
+    // debug
+    // console.log('Responses so far:', responses);
+
+    // if the user has answered the last question
     if (currentStep + 1 >= totalSteps) {
-      //if the user has answered the last question, navigate to the Dashboard screen
-      navigation.navigate('Dashboard'); // Navigate to the Dashboard screen
+      try {
+        const email = responses.email;
+        const password = responses.password
+
+        // // debug
+        // console.log("Creating account with email:", email);
+        // console.log("Password:", password);
+
+        const response = await createUserWithEmailAndPassword(auth, email, password);
+        // some implementation to send email for user to 2-factor authentication
+        navigation.navigate('Dashboard');
+      } catch (error) {
+        alert('Error creating account. Please try again.');
+        console.error("Error creating account: ", error.message);
+      }
     } else {
-      //increment to the next question
       setCurrentStep(currentStep + 1); 
     }
   };
 
-  //called when clicked back button
+  // called when clicked back button
   const handleBack = () => {
     setCurrentStep(currentStep - 1); // move to the previous question
   };

@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'; 
-import { useNavigation } from '@react-navigation/native';  // Import the navigation hook
+import { useNavigation } from '@react-navigation/native';  
 import styles from '../styling/QuestionStyle';
 
 export default function EmailPassword({ onNext }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigation = useNavigation();  // Initialize navigation
+    const navigation = useNavigation();  
 
     const handleNext = () => {
-        onNext('emailPassword', { email, password });
+        onNext('email', email);
+        onNext('password', password);
     };
 
     const handleBack = () => {
-        navigation.navigate('LoginScreen');  // Navigate back to LoginScreen
+        navigation.navigate('LoginScreen');  
     };
 
     return (
@@ -35,6 +36,7 @@ export default function EmailPassword({ onNext }) {
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry={true}
+                autoCapitalize="none"
             />
     
             <View style={styles.navigationContainer}>
@@ -48,7 +50,7 @@ export default function EmailPassword({ onNext }) {
                 <TouchableOpacity
                     onPress={handleNext}
                     style={styles.navigationButton}
-                    disabled={!email || !password}  // Disable button if email or password is empty
+                    disabled={!email || !password}  // disable button if email or password is empty
                 >
                     <Text style={styles.nextButtonText}>Next</Text>
                 </TouchableOpacity>

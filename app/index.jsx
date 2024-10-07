@@ -15,7 +15,7 @@ const Stack = createStackNavigator();
 
 export default function Index() {
   return (
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator initialRouteName="LoginScreen">
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}

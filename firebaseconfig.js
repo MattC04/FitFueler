@@ -1,8 +1,8 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+// import the functions you need from the SDKs you need
+import { initializeApp, getApps } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "@react-native-firebase/auth"
-require('dotenv').config();
+import { getAuth } from "firebase/auth"
+import Config from './env';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -10,17 +10,16 @@ require('dotenv').config();
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain, 
-  databaseURL: process.env.databaseURL,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
-  measurementId: process.env.measurementId
+  apiKey: Config.API_KEY,
+  authDomain: Config.AUTH_DOMAIN,
+  projectId: Config.PROJECT_ID,
+  storageBucket: Config.STORAGE_BUCKET,
+  messagingSenderId: Config.MESSAGING_SENDER_ID,
+  appId: Config.APP_ID,
+  measurementId: Config.MEASUREMENT_ID,
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const auth = getAuth(app)
+export const FIREBASE_APP = initializeApp(firebaseConfig);
+export const FIREBASE_ANALYTICS = getAnalytics(FIREBASE_APP);
+export const FIREBASE_AUTH = getAuth(FIREBASE_APP)
