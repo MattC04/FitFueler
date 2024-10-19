@@ -1,20 +1,21 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-    dashboardText: {
-        color: '#FFFFFF',
-        fontSize: 24,
-        fontFamily: 'raleway-bold',
-        textAlign: 'center', // center the text horizontally
-    },
-    todayText: {
-        color: '#00FF00',
-        fontSize: 16,
-        fontFamily: 'raleway-regular',
-        position: 'absolute', // positioning today text to be at the top-right
-        top: 0,
-        right: 20,
-      },
+  dashboardText: {
+    color: '#FFFFFF',
+    fontSize: 24,
+    fontFamily: 'raleway-bold',
+    textAlign: 'center',
+  },
+  todayText: {
+  color: '#00FF00',
+    fontSize: 16,
+    fontFamily: 'raleway-regular',
+    position: 'absolute',
+    top: 0,
+    right: 20,
+},
+
     gradientBackground: {
       flex: 1,
     },

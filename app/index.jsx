@@ -8,14 +8,24 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './IntroScreens/LoginScreen';
 import QuestionScreen from './IntroScreens/QuestionScreen';
 import ForgotPasswordScreen from './IntroScreens/ForgotScreen';
-import Dashboard from './Dashboard/Dashboard';
-
+import DashboardScreen from './MainScreens/Dashboard';
+import LoggingScreen from './MainScreens/Logging'
 
 const Stack = createStackNavigator();
 
 export default function Index() {
   return (
-    <Stack.Navigator initialRouteName="LoginScreen">
+    <Stack.Navigator initialRouteName="LoggingScreen">
+        <Stack.Screen
+        name="LoggingScreen"
+        component={LoggingScreen}
+        options={{ headerShown: false}}
+      />
+       <Stack.Screen
+        name="DashboardScreen"
+        component={DashboardScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
@@ -29,11 +39,6 @@ export default function Index() {
       <Stack.Screen
         name="ForgotPassword"
         component={ForgotPasswordScreen} 
-        options={{ headerShown: false }}
-      />
-       <Stack.Screen
-        name="Dashboard"
-        component={Dashboard}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
